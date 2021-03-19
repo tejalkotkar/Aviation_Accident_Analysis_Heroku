@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/Damage_Phase.css')}}">
+    <link rel="stylesheet" href="../static/css/d3styles.css">
+    <title>Aircraft Damage & Phase of Flight</title>
+</head>
+<body>
+    <!--Header showcase-->
+    <header id="showcase" class="grid">
+        <div class="bg-image">
+           <div class="content-wrap">
+             <h1> Accidents by Aircraft Damage & Phase of Flight </h1> 
+            </div> 
+        </div>
+    </header>
+    <main id="main">
+        <!--Section A-->
+        <section id="section-a" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title"> How serious damage can be and when! </h2>
+                <div class = "content-text"> 
+                    <p>
+                        Aircraft had Substantial damages in around 24K accidents.
+                    </p>
+                    <p> 
+                        Maximum accidents are reported during the Landing phase of the flight approximately 8K.
+                    </p>
+                </div>    
+            </div>
+        </section>
+        <!--Section B-->
+        <section id="section-b" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Vizualizations </h2>
+                <div class = "content-text"> 
+                    <div class="damage_plot" id="damage">
+                        <!-- Plot will come here -->
+                    </div>
+                </div>    
+            </div>
+        </section>
+     </main>
+    <!--Footer-->
+    <footer id="main-footer"  >
+        <div>Project Link: <br>
+         Github:<a href="https://github.com/tejalkotkar/Aviation_Accident_Analysis", target="_blank">Project Aviation Saftey</a>
+        </div>
+    </footer>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script type=text/javascript src="static/js/damage_phase.js"></script>
+</body>
+</html>

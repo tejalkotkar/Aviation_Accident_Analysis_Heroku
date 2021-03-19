@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/abt_data.css')}}">
+    <title>About Data</title>
+</head>
+<body>
+    <!--Header showcase-->
+    <header id="showcase" class="grid">
+        <div class="bg-image">
+           <div class="content-wrap">
+            <h1> Aviation Data Details</h1> 
+            </div> 
+        </div>
+    </header>
+    <main id="main">
+        <!--Section A-->
+        <section id="section-a" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Data Source & Clean up</h2>
+                <div class = "content-text"> 
+                    <p> To accomplish this, we used Aviation Accident dataset from Kaggle
+                        Data Source:<a target = "_blank" href="https://www.kaggle.com/khsamaha/aviation-accident-database-synopses?select=AviationData.csv)">Link</a> 
+                    </p>
+                    <p> Clean up process outline:
+                        Read CSV files, removed unecessary columns, renamed columns, removed the missing values and 
+                        filtered only USA data.
+                    </p>
+                </div>    
+            </div>
+        </section>
+        <section id="section-b" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Related Inforamtion </h2>
+                <div class = "content-text"> 
+                    <p>
+                        National Transportation Safety Board: <a target = "_blank" href="https://www.ntsb.gov/Pages/default.aspx">Link</a> 
+                    </p> 
+                    <p>
+                        Federal Aviation Administration: <a target = "_blank" href="https://www.faa.gov/">Link</a> 
+                    </p> 
+                    <p>
+                        Wiki: <a target = "_blank" href="https://en.wikipedia.org/wiki/Aviation_accidents_and_incidents">Link</a> 
+                    </p>
+                </div>    
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <footer id="main-footer"  >
+        <div>Project Link: <br>
+         Github:<a href="https://github.com/tejalkotkar/Aviation_Accident_Analysis", target="_blank">Project Aviation Saftey</a>
+        </div>
+    </footer>
+    
+</body>
+</html>

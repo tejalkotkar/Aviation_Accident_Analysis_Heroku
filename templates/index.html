@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/carousel.css')}}">
+    <!-- <link rel="stylesheet" href="../static/css/carousel.css"> -->
+    <title>Dashboard</title>
+</head>
+<body>
+    <!--Header showcase-->
+     <header id="showcase" class="grid">
+         <div class="bg-image">
+            <div class="content-wrap">
+             <h1> Aviation Accident Analysis</h1> 
+             <p>Purpose of this project is to analyze civil aviation accidents and predict the damage.</p>
+             <a href="{{ url_for('abt_data') }}" target="_blank" class="btn"> About Data</a>
+            </div> 
+         </div>
+     </header>
+
+    <!--Mainsection--> 
+    <main id="main">
+        <!--Section A-->
+        <section id="section-a" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Analysis & Predictions</h2>
+                <div class = "content-text"> 
+                    <p>Post analyzing the data used Machine Learing Alogrithms Random forest and Logistic regression
+                       to find a best fit model for predictions. 
+                       These are the best Alogrithms applied to each predictions: <br>
+                      <b>Incident Prediction: </b>Random forest <br>
+                      <b>Aircraft Damage Prediction: </b>Random forest <br>
+                       <b>Accident Severity: </b>Logistic regression 
+                   </p>
+                </div>    
+            </div>
+        </section>
+        <!--Section B-->
+        <section id="section-b" class="grid">
+         <ul>
+             <li>
+                 <div class="card">
+                     <h3 class="content-title">Incident Prediction</h3>
+                     <br>
+                     <form action="{{ url_for('type_prediction') }}" method="post">
+                        <label for="Injury_Severity">Injury Severity:</label><br>
+                        <select id="inc_Sev" name="Injury_Severity"></select><br><br>
+                        <label for="Aircraft_damage">Aircraft damage:</label><br>
+                        <select id="inc_Damage" name="Aircraft_damage"></select><br><br>
+                        <label for="Fatal_Injury">Total Fatal Injury:</label>
+                        <input type="text" id="Fatal_Injury" name="Fatal_Injury" required><br><br>
+                        <label for="Serious_Injury">Total Serious Injury:</label>
+                        <input type="text" id="Serious_Injury" name="Serious_Injury" required><br><br>
+                        <label for="Minor_Injury">Total Minor Injury:</label>
+                        <input type="text" id="Minor_Injury" name="Minor_Injury" required><br><br>
+                        <label for="Uninjured">Total Uninjured:</label>
+                        <input type="text" id="Uninjured" name="Uninjured" required><br><br>
+                        <input type="submit" value="Make Predication">
+                      </form>
+                      <p><h4>The prediction is : {{type_predict}}</h4></p>
+                 </div>
+             </li>
+             <li>
+                <div class="card">
+                    <h3 class="content-title">Aircraft Damage Prediction</h3>
+                    <form action="{{ url_for('damage_prediction') }}" method="post">
+                       <label for="Injury_Severity">Injury Severity:</label><br>
+                       <select id="damage_Sev" name="Injury_Severity"></select><br><br>
+                       <label for="Aircraft_cat">Aircraft Category:</label><br>
+                       <select id="damage_Cat" name="Aircraft_cat"></select><br><br>
+                       <label for="Aircraft_make">Aircraft make:</label><br>
+                       <select id="damage_Make" name="Aircraft_make"></select><br><br>
+                       <label for="Fatal_Injury">Total Fatal Injury:</label>
+                       <input type="text" id="Fatal_Injury" name="Fatal_Injury" required><br><br>
+                       <label for="Serious_Injury">Total Serious Injury:</label>
+                       <input type="text" id="Serious_Injury" name="Serious_Injury" required><br><br>
+                       <label for="Minor_Injury">Total Minor Injury:</label>
+                       <input type="text" id="Minor_Injury" name="Minor_Injury" required><br><br>
+                       <label for="Uninjured">Total Uninjured:</label>
+                       <input type="text" id="Uninjured" name="Uninjured" required><br><br>
+                       <label for="Board_phase">Board Phase:</label><br>
+                       <select id="damage_Phase" name="Board_phase"></select><br><br>
+                       <input type="submit" value="Make Predication">
+                     </form>
+                     <p><h4>The prediction is : {{damage_predict}}</h4></p>
+                </div>
+            </li>
+            <li>
+                <div class="card">
+                    <h3 class="content-title">Accident Severity Prediction</h3>
+                    <form action="{{ url_for('severity_prediction') }}" method="post">
+                       <label for="Aircraft_damage">Aircraft damage:</label><br>
+                       <select id="sev_Damage" name="Aircraft_damage"></select><br><br>
+                       <label for="Aircraft_cat">Aircraft Category:</label><br>
+                       <select id="sev_Cat" name="Aircraft_Category"></select><br><br>
+                       <label for="Fatal_Injury">Total Fatal Injury:</label><br>
+                       <input type="text" id="Fatal_Injury" name="Fatal_Injury" required><br><br>
+                       <label for="Serious_Injury">Total Serious Injury:</label>
+                       <input type="text" id="Serious_Injury" name="Serious_Injury" required><br><br>
+                       <label for="Minor_Injury">Total Minor Injury:</label>
+                       <input type="text" id="Minor_Injury" name="Minor_Injury" required><br><br>
+                       <label for="Uninjured">Total Uninjured:</label>
+                       <input type="text" id="Uninjured" name="Uninjured" required><br><br>
+                       <label for="Board_phase">Board Phase:</label><br>
+                       <select id="sev_Phase" name="Board_phase"></select><br><br>
+                       <input type="submit" value="Make Predication">
+                     </form>
+                     <p><h4>The prediction is : {{severity_predict}}</h4></p>
+
+                </div>
+            </li>
+         </ul>   
+        </section>
+        <!--Section C-->
+        <section id="section-c" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Vizualizations</h2>
+                <div class="carousel" data-flickity='{ "lazyLoad": true }'>
+                    <div class="carousel-cell">
+                      <a href="{{ url_for('accident_distribution') }}" target="_blank">
+                        <img class="carousel-cell-image"
+                        data-flickity-lazyload="../static/Bkg_images/distribution_img.PNG" alt="plot1" />
+                      <div class="bottom-right">Accident Distribution</div>
+                      </a> 
+                    </div>
+                    <div class="carousel-cell">
+                      <a href="{{ url_for('accidents_injuries') }}" target="_blank"> 
+                        <img class="carousel-cell-image"
+                        data-flickity-lazyload="../static/Bkg_images/injuries_img.PNG" alt="plot2" />
+                        <div class="bottom-right">Injuries occured</div>
+                      </a>   
+                    </div>
+                    <div class="carousel-cell">
+                      <a href="{{ url_for('make_model') }}" target="_blank">   
+                        <img class="carousel-cell-image"
+                        data-flickity-lazyload="../static/Bkg_images/make_model_img.PNG" alt="plot3" />
+                        <div class="bottom-right">Aircraft Make & Model</div>
+                      </a>   
+                    </div>
+                    <div class="carousel-cell">
+                      <a href="{{ url_for('accidents_purpose') }}" target="_blank">  
+                        <img class="carousel-cell-image"
+                        data-flickity-lazyload="../static/Bkg_images/purpose_img.PNG" alt="plot4" />
+                        <div class="bottom-right">Flight Purpose</div>
+                      </a>  
+                    </div>
+                    <div class="carousel-cell">
+                      <a href="{{ url_for('Damage_Phase') }}" target="_blank">  
+                        <img class="carousel-cell-image"
+                        data-flickity-lazyload="../static/Bkg_images/damage_phase_img.PNG" alt="plot5" />
+                        <div class="bottom-right">Aircraft Damage & Board Phase of Flight</div>
+                      </a>  
+                    </div>
+                  </div>      
+            </div>  
+        </section>
+        <!--Section D-->
+        <section id="section-d">
+            <div class="content-wrap">
+                <h2 class="content-title">Conatct Us</h2>
+                  <div class="projectcontributor">
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                          <img src="../static/Bkg_images/tejal.jpg" alt="Avatar">
+                      </div>
+                      <div class="flip-box-back">
+                        <b>Name: </b>Tejal Kotkar<br>
+                        <b>Email: </b>kotkar.tejal@gmail.com<br>
+                        <b>LinkedIn: </b><a target = "_blank" href="https://www.linkedin.com/in/tejal-kotkar/">Tejal Kotkar</a>
+                      </div>
+                      </div>
+                   </div>    
+                   <div class="flip-box">
+                      <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                          <img src="../static/Bkg_images/savita.jpg" alt="Avatar">
+                      </div>
+                      <div class="flip-box-back">
+                        <b>Name: </b>Savita Hirilall <br>
+                        <b>Email: </b>talktosavita@gmail.com <br>
+                        <b>LinkedIn: </b><a target = "_blank" href="https://www.linkedin.com/in/savita-hirilall-91297a118/">Savita Hirilall</a>
+                      </div>
+                      </div>
+                   </div>    
+                   <div class="flip-box">
+                      <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                          <img src="../static/Bkg_images/hibo.jpg" alt="Avatar">
+                      </div>
+                      <div class="flip-box-back">
+                        <b>Name: </b>Hibo Dahir <br>
+                        <b>Email: </b>sdahir492@gmail.com <br>
+                        <b>LinkedIn: </b><a target = "_blank" href="https://www.linkedin.com/in/hibo-dahir-83786a155/">Hibo Dahir</a>
+                      </div>
+                      </div>
+                   </div>
+                   <div class="flip-box">
+                      <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                          <img src="../static/Bkg_images/tana.jpg" alt="Avatar">
+                      </div>
+                      <div class="flip-box-back">
+                        <b>Name: </b>Tana Larson <br>
+                        <b>Email: </b>tana.larson4@outlook.com<br>
+                        <b>LinkedIn: </b><a target = "_blank" href="https://www.linkedin.com/in/tana-larson/">Tana Larson</a>
+                      </div>
+                      </div>
+                   </div>
+                  </div> 
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer id="main-footer"  >
+        <div>Project Link <br>
+         Github:<a href="https://github.com/tejalkotkar/Aviation_Accident_Analysis", target="_blank">Project Aviation Saftey</a>
+        </div>
+    </footer>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+<script type=text/javascript src="static/js/dashboard.js"></script>
+</body>
+</html>

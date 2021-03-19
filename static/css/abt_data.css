@@ -1,0 +1,22 @@
+#showcase .bg-image {
+    position: absolute;
+    background: #333;
+    background-image: url(../Bkg_images/abt_data.jpg);
+    /* background-image: url(pexels-andrea-piacquadio-3769138.jpg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    /* z-index: -1; */
+    /* opacity: 0.5; */
+}
+#showcase h1 {
+    padding-top: 10px;
+    padding-bottom: 0px;
+    color: black;
+}
+
+#showcase p {
+    color: black;
+}
